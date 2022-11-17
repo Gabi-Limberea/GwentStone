@@ -1,2 +1,15 @@
 Starting audit...
+[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/cards/Card.java:8:1: File contains tab characters (this is the first instance). [FileTabCharacter]
+[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/cards/Hero.java:14:1: File contains tab characters (this is the first instance). [FileTabCharacter]
+[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/loader/Loader.java:11:1: File contains tab characters (this is the first instance). [FileTabCharacter]
+[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/loader/Loader.java:30:9: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/board/Board.java:7:1: Class Board should be declared as final. [FinalClass]
+[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/board/Board.java:8:1: File contains tab characters (this is the first instance). [FileTabCharacter]
+[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/board/Board.java:22:9: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/games/GamePrep.java:8:1: File contains tab characters (this is the first instance). [FileTabCharacter]
+[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/games/Game.java:9:1: File contains tab characters (this is the first instance). [FileTabCharacter]
+[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/player/Player.java:13:1: File contains tab characters (this is the first instance). [FileTabCharacter]
+[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/player/Player.java:46:9: Missing a Javadoc comment. [MissingJavadocMethod]
+[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/player/Player.java:59:9: Missing a Javadoc comment. [MissingJavadocMethod]
 Audit done.
+Checkstyle ends with 12 errors.
