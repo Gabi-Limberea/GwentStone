@@ -1,18 +1,19 @@
 package main;
 
 import checker.Checker;
-
+import checker.CheckerConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import checker.CheckerConstants;
 import fileio.Input;
+import loader.Loader;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -28,6 +29,7 @@ public final class Main {
     /**
      * DO NOT MODIFY MAIN METHOD
      * Call the checker
+     *
      * @param args from command line
      * @throws IOException in case of exceptions to reading / writing
      */
@@ -49,6 +51,7 @@ public final class Main {
             File out = new File(filepath);
             boolean isCreated = out.createNewFile();
             if (isCreated) {
+                System.out.println("Created file: " + file.getName());
                 action(file.getName(), filepath);
             }
         }
@@ -61,16 +64,23 @@ public final class Main {
      * @param filePath2 for output file
      * @throws IOException in case of exceptions to reading / writing
      */
-    public static void action(final String filePath1,
-                              final String filePath2) throws IOException {
+    public static void action(
+            final String filePath1, final String filePath2
+                             ) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         Input inputData = objectMapper.readValue(new File(CheckerConstants.TESTS_PATH + filePath1),
-                Input.class);
+                                                 Input.class
+                                                );
 
         ArrayNode output = objectMapper.createArrayNode();
 
         //TODO add here the entry point to your implementation
+        ArrayList<String> sessionOutput = new Loader(inputData).startSession();
+        for (String line : sessionOutput) {
+            output.add(objectMapper.readTree(line));
+        }
 
+        System.out.println(output);
 
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
         objectWriter.writeValue(new File(filePath2), output);

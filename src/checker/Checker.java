@@ -44,7 +44,6 @@ public final class Checker {
         if (Files.exists(path1) || Files.exists(path2) || Files.exists(path3)) {
             readmeScore = CheckerConstants.FIVE_POINTS;
             System.out.println(readmeScore + "/5");
-
         } else {
             readmeScore = CheckerConstants.ZERO_POINTS;
             System.out.println(readmeScore + "/5");
@@ -67,7 +66,7 @@ public final class Checker {
 
         if (finalScore == CheckerConstants.MAX_POINTS) {
             System.out.println("\nAcum ca ai terminat, sigur esti un..."
-                    + " https://www.youtube.com/watch?v=1LZZYemqLyU");
+                               + " https://www.youtube.com/watch?v=1LZZYemqLyU");
         }
     }
 
@@ -80,7 +79,7 @@ public final class Checker {
 
     /**
      * This method is used to calculate score of implementation
-     *
+     * <p>
      * 18 tests (80 points maximum)
      */
     private static void calculateScoreAllTests() throws IOException {
@@ -101,16 +100,18 @@ public final class Checker {
 
     /**
      * This method calculates the score of only one single test
+     *
      * @return the score of that test
      */
     public static int calculateScore(final String input) {
         if (checkOutput(input)) {
             System.out.print(input + " ");
-            for (int i = 1;  i <= CheckerConstants.LEN_LONGEST_TEST_NAME - input.length(); i++) {
+            for (int i = 1; i <= CheckerConstants.LEN_LONGEST_TEST_NAME - input.length(); i++) {
                 System.out.print("-");
             }
-            System.out.println("--------------------------------------------- PASSED (+"
-                    + getScoreForTest(input) + ")");
+            System.out.println(
+                    "--------------------------------------------- PASSED (+" + getScoreForTest(
+                            input) + ")");
             return getScoreForTest(input);
         } else {
             System.out.print(input + " ");
@@ -124,8 +125,7 @@ public final class Checker {
 
     /**
      * @param file the test you want to check
-     * @return
-     *          if the two files are equal or not
+     * @return if the two files are equal or not
      */
     private static boolean checkOutput(final String file) {
         ObjectMapper mapper = new ObjectMapper();
@@ -134,7 +134,6 @@ public final class Checker {
             JsonNode output = mapper.readTree(new File(CheckerConstants.OUT_PATH + file));
             JsonNode ref = mapper.readTree(new File(CheckerConstants.REF_PATH + file));
             return output.equals(ref);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -143,7 +142,7 @@ public final class Checker {
 
     /**
      * @param input the test you want to calculate score for
-     * @return  the score of that test
+     * @return the score of that test
      */
     private static int getScoreForTest(final String input) {
 

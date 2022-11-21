@@ -1,14 +1,14 @@
 package fileio;
 
 public final class ActionsInput {
-    private String command;
-    private int handIdx;
+    private String      command;
+    private int         handIdx;
     private Coordinates cardAttacker;
     private Coordinates cardAttacked;
-    private int affectedRow;
-    private int playerIdx;
-    private int x;
-    private int y;
+    private int         affectedRow;
+    private int         playerIdx;
+    private int         x;
+    private int         y;
 
     public ActionsInput() {
     }
@@ -79,23 +79,9 @@ public final class ActionsInput {
 
     @Override
     public String toString() {
-        return "ActionsInput{"
-                +  "command='"
-                + command + '\''
-                +  ", handIdx="
-                + handIdx
-                +  ", cardAttacker="
-                + cardAttacker
-                +  ", cardAttacked="
-                + cardAttacked
-                + ", affectedRow="
-                + affectedRow
-                + ", playerIdx="
-                + playerIdx
-                + ", x="
-                + x
-                + ", y="
-                + y
-                + '}';
+        return "ActionsInput{" + "command='" + command + '\'' + ", handIdx=" + handIdx
+               + ", cardAttacker=" + cardAttacker + ", cardAttacked=" + cardAttacked
+               + ", affectedRow=" + affectedRow + ", playerIdx=" + playerIdx + ", x=" + x + ", y="
+               + y + '}';
     }
 }

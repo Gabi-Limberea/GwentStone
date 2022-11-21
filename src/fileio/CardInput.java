@@ -3,12 +3,12 @@ package fileio;
 import java.util.ArrayList;
 
 public final class CardInput {
-    private int mana;
-    private int attackDamage;
-    private int health;
-    private String description;
+    private int               mana;
+    private int               attackDamage;
+    private int               health;
+    private String            description;
     private ArrayList<String> colors;
-    private String name;
+    private String            name;
 
     public CardInput() {
     }
@@ -63,22 +63,8 @@ public final class CardInput {
 
     @Override
     public String toString() {
-        return "CardInput{"
-                +  "mana="
-                + mana
-                +  ", attackDamage="
-                + attackDamage
-                + ", health="
-                + health
-                +  ", description='"
-                + description
-                + '\''
-                + ", colors="
-                + colors
-                + ", name='"
-                +  ""
-                + name
-                + '\''
-                + '}';
+        return "CardInput{" + "mana=" + mana + ", attackDamage=" + attackDamage + ", health="
+               + health + ", description='" + description + '\'' + ", colors=" + colors + ", name='"
+               + "" + name + '\'' + '}';
     }
 }

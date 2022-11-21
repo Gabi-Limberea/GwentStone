@@ -1,33 +1,56 @@
 package loader;
 
+import board.BoardRows;
 import fileio.DecksInput;
 import fileio.Input;
 import games.Game;
+import org.jetbrains.annotations.NotNull;
 import player.Player;
 
 import java.util.ArrayList;
 
 public final class Loader {
-	private final Player playerOne;
-	private final Player playerTwo;
+    private final Player playerOne;
+    private final Player playerTwo;
 
-	private final ArrayList<Game> games;
+    private final ArrayList<Game> games;
 
-	public Loader(final Input sessionInput) {
-		DecksInput dummyOne = sessionInput.getPlayerOneDecks();
-		DecksInput dummyTwo = sessionInput.getPlayerTwoDecks();
+    /**
+     * @param sessionInput
+     */
+    public Loader(final @NotNull Input sessionInput) {
+        DecksInput dummyOne = sessionInput.getPlayerOneDecks();
+        DecksInput dummyTwo = sessionInput.getPlayerTwoDecks();
 
-		this.playerOne = new Player(dummyOne);
-		this.playerTwo = new Player(dummyTwo);
+        this.playerOne = new Player(dummyOne, BoardRows.PLAYER_ONE_FRONT, BoardRows.PLAYER_ONE_BACK);
+        this.playerTwo = new Player(dummyTwo, BoardRows.PLAYER_TWO_FRONT, BoardRows.PLAYER_TWO_BACK);
 
-		this.games = new ArrayList<>(sessionInput.getGames().size());
+        this.games = new ArrayList<>(sessionInput.getGames().size());
 
-		for (int i = 0; i < sessionInput.getGames().size(); i++) {
-			this.games.add(new Game(sessionInput.getGames().get(i)));
-		}
-	}
+        for (int i = 0; i < sessionInput.getGames().size(); i++) {
+            this.games.add(new Game(sessionInput.getGames().get(i)));
+        }
+    }
 
-	public void startSession() {
+    /**
+     *
+     */
+    public ArrayList<String> startSession() {
+        ArrayList<String> sessionOutput = new ArrayList<>();
 
-	}
+        for (Game game : this.games) {
+            sessionOutput.addAll(game.startGame(this.playerOne, this.playerTwo));
+        }
+
+        System.out.println(sessionOutput);
+        return sessionOutput;
+    }
+
+    public Player getPlayerTwo() {
+        return playerTwo;
+    }
+
+    public Player getPlayerOne() {
+        return playerOne;
+    }
 }

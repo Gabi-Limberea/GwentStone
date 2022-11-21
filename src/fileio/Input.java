@@ -3,8 +3,8 @@ package fileio;
 import java.util.ArrayList;
 
 public final class Input {
-    private DecksInput playerOneDecks;
-    private DecksInput playerTwoDecks;
+    private DecksInput           playerOneDecks;
+    private DecksInput           playerTwoDecks;
     private ArrayList<GameInput> games;
 
     public Input() {
@@ -36,13 +36,7 @@ public final class Input {
 
     @Override
     public String toString() {
-        return "Input{"
-                + "player_one_decks="
-                + playerOneDecks
-                + ", player_two_decks="
-                + playerTwoDecks
-                +  ", games="
-                + games
-                +  '}';
+        return "Input{" + "player_one_decks=" + playerOneDecks + ", player_two_decks="
+               + playerTwoDecks + ", games=" + games + '}';
     }
 }
