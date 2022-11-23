@@ -7,21 +7,23 @@ import java.util.ArrayList;
 
 public final class Firestorm extends EnvironmentCard {
     /**
-     * @param source
+     * @param source the card to be created
      */
     public Firestorm(final CardInput source) {
         super(source);
     }
 
     /**
-     * @param source
+     * @param source the card to be copied
      */
     public Firestorm(final EnvironmentCard source) {
         super(source);
     }
 
     /**
-     * @param targetRow
+     * Use the Firestorm effect on the given row.
+     *
+     * @param targetRow the row to be affected by the card
      */
     public void use(final ArrayList<MinionCard> targetRow) {
         for (MinionCard minion : targetRow) {

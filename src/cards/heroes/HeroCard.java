@@ -4,59 +4,70 @@ import cards.Card;
 import cards.CardAttackStatus;
 import cards.minions.MinionCard;
 import fileio.CardInput;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
 public abstract class HeroCard extends Card {
-    private static final int        HEALTH = 30;
-    private int              health;
-    private CardAttackStatus attackStatus;
+    private static final int              HEALTH = 30;
+    private              int              health;
+    private              CardAttackStatus attackStatus;
 
     /**
-     * @param source
+     * @param source the card to be created
      */
-    public HeroCard(final @NotNull CardInput source) {
+    public HeroCard(final CardInput source) {
         super(source);
         this.health = HEALTH;
         this.attackStatus = CardAttackStatus.HAS_NOT_ATTACKED;
     }
 
     /**
-     * @param targetRow
+     * Use the hero's ability on the given row.
+     *
+     * @param targetRow the row to be targeted by the ability
      */
-    public abstract void useAbility(final ArrayList<MinionCard> targetRow);
+    public abstract void useAbility(ArrayList<MinionCard> targetRow);
 
     /**
-     * @param damage
+     * Make the hero take the given amount of damage.
+     *
+     * @param damage the amount of damage to be dealt to the hero
      */
     public void takeDamage(final int damage) {
         this.health -= damage;
     }
 
     /**
-     * @return
+     * Get the hero's current health.
+     *
+     * @return the hero's health
      */
     public int getHealth() {
         return this.health;
     }
 
     /**
-     * @return
+     * Get the hero's attack status.
+     *
+     * @return the hero's attack status
      */
     public CardAttackStatus getAttackStatus() {
         return this.attackStatus;
     }
 
     /**
-     * @param attackStatus
+     * Set the hero's attack status.
+     *
+     * @param attackStatus the new attack status of the hero
      */
     public void setAttackStatus(final CardAttackStatus attackStatus) {
         this.attackStatus = attackStatus;
     }
 
     /**
-     * @return
+     * Generate the output for getting the hero in a JSON formatted string.
+     *
+     * @return the hero in string format
      */
     @Override
     protected String genOutput() {
@@ -66,7 +77,7 @@ public abstract class HeroCard extends Card {
     }
 
     /**
-     * @return
+     * @return the string version of the hero
      */
     @Override
     public String toString() {

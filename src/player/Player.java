@@ -17,7 +17,6 @@ import errors.Errors;
 import fileio.CardInput;
 import fileio.Coordinates;
 import fileio.DecksInput;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -40,7 +39,7 @@ public final class Player {
      * @param front The index of the front row associated with the player
      * @param back  The index of the back row associated with the player
      */
-    public Player(final @NotNull DecksInput decks, final BoardRows front, final BoardRows back) {
+    public Player(final DecksInput decks, final BoardRows front, final BoardRows back) {
         this.wins = 0;
         this.decks = new ArrayList<>(decks.getNrDecks());
 
@@ -119,24 +118,20 @@ public final class Player {
 
     /**
      * Get how many games the player has won
-     *
-     * @return the number of wins of the player
      */
     public int getWins() {
         return wins;
     }
 
     /**
-     * Get all the decks that the player has
-     *
-     * @return the array of decks belonging to the player
+     * Get all the decks belonging to the player
      */
     public ArrayList<ArrayList<Card>> getDecks() {
         return decks;
     }
 
     /**
-     * @return the current deck of the player
+     * Get the current deck of the player
      */
     public ArrayList<Card> getCurrentDeck() {
         return this.currentDeck;
@@ -207,14 +202,10 @@ public final class Player {
         }
 
         Collections.shuffle(this.currentDeck, shuffle);
-
-        System.out.println(this.currentDeck == decks.get(currentDeckIndex));
     }
 
     /**
      * Get the hero that the player is using in the current game
-     *
-     * @return the hero that the player is currently using
      */
     public HeroCard getCurrentHero() {
         return currentHero;
@@ -222,8 +213,6 @@ public final class Player {
 
     /**
      * Set the hero that the player wants to use for the current game
-     *
-     * @param hero the hero that the player wants to use in the current game
      */
     public void setCurrentHero(final HeroCard hero) {
         this.currentHero = hero;
@@ -242,8 +231,6 @@ public final class Player {
 
     /**
      * Get the cards that the player has in their hand.
-     *
-     * @return the current hand of the player
      */
     public ArrayList<Card> getHand() {
         return this.currentHand;
@@ -251,8 +238,6 @@ public final class Player {
 
     /**
      * Get how much mana the player has.
-     *
-     * @return how much mana the player has
      */
     public int getMana() {
         return mana;
@@ -260,13 +245,10 @@ public final class Player {
 
     /**
      * Set how much mana the player has.
-     *
-     * @param mana the amount of mana the player will have
      */
-    public void setMana(int mana) {
+    public void setMana(final int mana) {
         this.mana = mana;
     }
-
 
     /**
      * Increase how much mana the player has by a given amount.
@@ -298,7 +280,6 @@ public final class Player {
         MinionCard minion = (MinionCard) card;
 
         if (card.getMana() > this.mana) {
-            System.out.println("Not enough mana");
             return Errors.NO_MANA_PLACE_CARD;
         }
 
@@ -340,7 +321,6 @@ public final class Player {
         EnvironmentCard envCard = (EnvironmentCard) card;
 
         if (card.getMana() > this.mana) {
-            System.out.println("Not enough mana to use environment card.");
             return Errors.NO_MANA_USE_ENV;
         }
 
@@ -550,9 +530,12 @@ public final class Player {
         for (int i = 0;
              i < cardsOnBoard.get(Board.ROWS - this.frontRow.ordinal() - 1).size(); i++) {
             if (cardsOnBoard.get(Board.ROWS - this.frontRow.ordinal() - 1).get(i).isTank()) {
-                if (Board.ROWS - this.frontRow.ordinal() - 1 != attackedRow || i != attackedColumn)
+                if (Board.ROWS - this.frontRow.ordinal() - 1 != attackedRow
+                    || i != attackedColumn) {
                     foundADifferentTank = true;
-                else return Errors.NONE;
+                } else {
+                    return Errors.NONE;
+                }
             }
         }
 
@@ -567,10 +550,9 @@ public final class Player {
      * Attack the enemy hero with one of the player's cards on the board.
      *
      * @param cardAttacker the coordinates of the card that is attacking
-     * @param enemyHero    the enemy hero
      * @return an error if one was encountered
      */
-    public Errors damageHero(final Coordinates cardAttacker, HeroCard enemyHero) {
+    public Errors damageHero(final Coordinates cardAttacker, final HeroCard enemyHero) {
         ArrayList<ArrayList<MinionCard>> cardsOnBoard = Board.getInstance().getCardsOnBoard();
         int attackerRow = cardAttacker.getX();
         int attackerColumn = cardAttacker.getY();

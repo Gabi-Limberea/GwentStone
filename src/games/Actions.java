@@ -1,7 +1,5 @@
 package games;
 
-import org.jetbrains.annotations.NotNull;
-
 public enum Actions {
     GET_HAND("getCardsInHand"), GET_DECK("getPlayerDeck"), GET_TABLE("getCardsOnTable"),
     GET_TURN("getPlayerTurn"), GET_HERO("getPlayerHero"), GET_CARD("getCardAtPosition"),
@@ -18,10 +16,12 @@ public enum Actions {
     }
 
     /**
-     * @param command
-     * @return
+     * Get the action corresponding to the given command.
+     *
+     * @param command the command to be checked
+     * @return the action that corresponds to the command
      */
-    public static Actions getCommand(final @NotNull String command) {
+    public static Actions getCommand(final String command) {
         for (Actions action : Actions.values()) {
             if (action.name.equals(command)) {
                 return action;

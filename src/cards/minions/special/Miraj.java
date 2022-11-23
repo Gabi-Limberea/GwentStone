@@ -6,21 +6,23 @@ import fileio.CardInput;
 
 public final class Miraj extends MinionCard implements SpecialMinionCard {
     /**
-     * @param source
+     * @param source the card to be created
      */
     public Miraj(final CardInput source) {
         super(source);
     }
 
     /**
-     * @param source
+     * @param source the card to be copied
      */
     public Miraj(final MinionCard source) {
         super(source);
     }
 
     /**
-     * @return
+     * Miraj is not a tank.
+     *
+     * @return false
      */
     @Override
     public boolean isTank() {
@@ -28,7 +30,9 @@ public final class Miraj extends MinionCard implements SpecialMinionCard {
     }
 
     /**
-     * @param target
+     * Use the special ability of Miraj on the given target.
+     *
+     * @param target the target of the special ability
      */
     @Override
     public void specialAttack(final MinionCard target) {

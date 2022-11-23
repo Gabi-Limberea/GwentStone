@@ -6,15 +6,14 @@ public enum MinionTypes {
     NOTHING("Nothing");
     private final String name;
 
-    /**
-     * @param name
-     */
     MinionTypes(final String name) {
         this.name = name;
     }
 
     /**
-     * @return
+     * Get the minion type associated with a name.
+     *
+     * @return the minion type
      */
     public static MinionTypes getMinionType(final String name) {
         for (MinionTypes minionType : MinionTypes.values()) {

@@ -1,17 +1,2 @@
 Starting audit...
-[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/cards/heroes/HeroCard.java:28:37: Redundant 'final' modifier. [RedundantModifier]
-[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/cards/Card.java:60:27: Parameter colors should be final. [FinalParameters]
-[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/cards/minions/MinionStates.java:17:46: 'timeStamp' hides a field. [HiddenField]
-[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/main/Test.java:1: File does not end with a newline. [NewlineAtEndOfFile]
-[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/board/Board.java:103:35: Parameter HeroOne should be final. [FinalParameters]
-[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/board/Board.java:103:44: Name 'HeroOne' must match pattern '^[a-z][a-zA-Z0-9]*$'. [ParameterName]
-[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/board/Board.java:103:53: Parameter HeroTwo should be final. [FinalParameters]
-[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/board/Board.java:103:62: Name 'HeroTwo' must match pattern '^[a-z][a-zA-Z0-9]*$'. [ParameterName]
-[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/games/Game.java:41:5: Method length is 178 lines (max allowed is 150). [MethodLength]
-[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/games/Game.java:180: Line is longer than 100 characters (found 117). [LineLength]
-[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/player/Player.java:266:25: Parameter mana should be final. [FinalParameters]
-[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/player/Player.java:553:17: 'if' construct must use '{}'s. [NeedBraces]
-[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/player/Player.java:555:17: 'else' construct must use '{}'s. [NeedBraces]
-[ERROR] /home/gabi/Documents/Programming/Java/OOP/Teme - OOP/Tema 1 - GwentStone/./src/player/Player.java:573:62: Parameter enemyHero should be final. [FinalParameters]
 Audit done.
-Checkstyle ends with 14 errors.

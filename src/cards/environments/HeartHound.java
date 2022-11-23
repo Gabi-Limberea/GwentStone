@@ -10,21 +10,23 @@ import java.util.Comparator;
 
 public final class HeartHound extends EnvironmentCard {
     /**
-     * @param source
+     * @param source the card to be created
      */
     public HeartHound(final CardInput source) {
         super(source);
     }
 
     /**
-     * @param source
+     * @param source the card to be copied
      */
     public HeartHound(final EnvironmentCard source) {
         super(source);
     }
 
     /**
-     * @param targetRow
+     * Use the HeartHound effect on the given row.
+     *
+     * @param targetRow the row to be affected by the card
      */
     @Override
     public void use(final ArrayList<MinionCard> targetRow) {

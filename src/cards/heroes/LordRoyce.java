@@ -10,14 +10,16 @@ import java.util.Comparator;
 
 public final class LordRoyce extends HeroCard {
     /**
-     * @param source
+     * @param source the card to be created
      */
     public LordRoyce(final CardInput source) {
         super(source);
     }
 
     /**
-     * @param targetRow
+     * Use the ability of Lord Royce on the given row.
+     *
+     * @param targetRow the row to be affected by the ability
      */
     public void useAbility(final ArrayList<MinionCard> targetRow) {
         MinionCard maxAttackCard = Collections.max(targetRow, Comparator.comparingInt(

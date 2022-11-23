@@ -24,6 +24,9 @@ public enum Errors {
         this.error = error;
     }
 
+    /**
+     * @return the error string
+     */
     public String getError() {
         return error;
     }

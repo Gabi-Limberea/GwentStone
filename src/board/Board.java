@@ -13,9 +13,6 @@ public final class Board {
     private static      Board                            instance = null;
     private final       ArrayList<ArrayList<MinionCard>> cardsOnBoard;
 
-    /**
-     * Constructs the Board object.
-     */
     private Board() {
         cardsOnBoard = new ArrayList<>(ROWS);
 
@@ -26,6 +23,8 @@ public final class Board {
     }
 
     /**
+     * Get the board instance.
+     *
      * @return the Board instance
      */
     public static Board getInstance() {
@@ -85,6 +84,8 @@ public final class Board {
 
     /**
      * Unfreeze all minions on the board that have been frozen for a turn.
+     *
+     * @param turnCounter the counter that keeps track of how many turns have passed
      */
     public void unfreeze(final int turnCounter) {
         for (ArrayList<MinionCard> row : cardsOnBoard) {
@@ -98,14 +99,18 @@ public final class Board {
     }
 
     /**
-     * Reset all minions on the board that have attacked.
+     * Reset all minions on the board that have attacked. Heroes have their attack status reset
+     * as well.
+     *
+     * @param heroOne the hero of the first player
+     * @param heroTwo the hero of the second player
      */
-    public void resetAttackStatus(HeroCard HeroOne, HeroCard HeroTwo) {
+    public void resetAttackStatus(final HeroCard heroOne, final HeroCard heroTwo) {
         for (ArrayList<MinionCard> row : cardsOnBoard) {
             row.forEach(card -> card.setAttackStatus(CardAttackStatus.HAS_NOT_ATTACKED));
         }
 
-        HeroOne.setAttackStatus(CardAttackStatus.HAS_NOT_ATTACKED);
-        HeroTwo.setAttackStatus(CardAttackStatus.HAS_NOT_ATTACKED);
+        heroOne.setAttackStatus(CardAttackStatus.HAS_NOT_ATTACKED);
+        heroTwo.setAttackStatus(CardAttackStatus.HAS_NOT_ATTACKED);
     }
 }

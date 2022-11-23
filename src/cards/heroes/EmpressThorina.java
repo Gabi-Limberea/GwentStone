@@ -9,14 +9,16 @@ import java.util.Comparator;
 
 public final class EmpressThorina extends HeroCard {
     /**
-     * @param source
+     * @param source the card to be created
      */
     public EmpressThorina(final CardInput source) {
         super(source);
     }
 
     /**
-     * @param targetRow
+     * Use the ability of Empress Thorina on the given row.
+     *
+     * @param targetRow the row to be affected by the ability
      */
     @Override
     public void useAbility(final ArrayList<MinionCard> targetRow) {

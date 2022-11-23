@@ -6,21 +6,23 @@ import fileio.CardInput;
 
 public final class TheCursedOne extends MinionCard implements SpecialMinionCard {
     /**
-     * @param source
+     * @param source the card to be created
      */
     public TheCursedOne(final CardInput source) {
         super(source);
     }
 
     /**
-     * @param source
+     * @param source the card to be copied
      */
     public TheCursedOne(final MinionCard source) {
         super(source);
     }
 
     /**
-     * @return
+     * The Cursed One is not a tank.
+     *
+     * @return false
      */
     @Override
     public boolean isTank() {
@@ -28,7 +30,9 @@ public final class TheCursedOne extends MinionCard implements SpecialMinionCard 
     }
 
     /**
-     * @param target
+     * Use the special ability of The Cursed One on the given target.
+     *
+     * @param target the target of the special ability
      */
     @Override
     public void specialAttack(final MinionCard target) {

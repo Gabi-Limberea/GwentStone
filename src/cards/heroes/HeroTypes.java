@@ -11,8 +11,10 @@ public enum HeroTypes {
     }
 
     /**
-     * @param name
-     * @return
+     * Get the hero type associated with the given name.
+     *
+     * @param name the name of the hero
+     * @return the hero type
      */
     public static HeroTypes getHeroType(final String name) {
         for (HeroTypes heroType : HeroTypes.values()) {

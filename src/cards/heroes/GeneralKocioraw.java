@@ -7,14 +7,16 @@ import java.util.ArrayList;
 
 public final class GeneralKocioraw extends HeroCard {
     /**
-     * @param source
+     * @param source the card to be created
      */
     public GeneralKocioraw(final CardInput source) {
         super(source);
     }
 
     /**
-     * @param targetRow
+     * Use the ability of General Kocioraw on the given row.
+     *
+     * @param targetRow the row to be affected by the ability
      */
     @Override
     public void useAbility(final ArrayList<MinionCard> targetRow) {

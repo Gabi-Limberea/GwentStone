@@ -4,7 +4,6 @@ import cards.heroes.HeroCard;
 import cards.heroes.HeroTypes;
 import fileio.CardInput;
 import fileio.StartGameInput;
-import org.jetbrains.annotations.NotNull;
 
 public final class GamePrep {
     private final int      playerOneDeckIndex;
@@ -15,9 +14,9 @@ public final class GamePrep {
     private final int      startingPlayer;
 
     /**
-     * @param source
+     * @param source the input for creating the game preparations.
      */
-    public GamePrep(final @NotNull StartGameInput source) {
+    public GamePrep(final StartGameInput source) {
         this.playerOneDeckIndex = source.getPlayerOneDeckIdx();
         this.playerTwoDeckIndex = source.getPlayerTwoDeckIdx();
         this.shuffleSeed = source.getShuffleSeed();
@@ -25,9 +24,6 @@ public final class GamePrep {
 
         CardInput dummyHeroOne = source.getPlayerOneHero();
         CardInput dummyHeroTwo = source.getPlayerTwoHero();
-
-
-        cards.heroes.HeroCard heroTwo = null;
 
         switch (HeroTypes.getHeroType(dummyHeroOne.getName())) {
             case ROYCE -> {
@@ -73,42 +69,54 @@ public final class GamePrep {
     }
 
     /**
-     * @return
+     * Get the index of the first player's deck.
+     *
+     * @return the index of the first player's deck.
      */
     public int getPlayerOneDeckIndex() {
         return this.playerOneDeckIndex;
     }
 
     /**
-     * @return
+     * Get the index of the second player's deck.
+     *
+     * @return the index of the second player's deck.
      */
     public int getPlayerTwoDeckIndex() {
         return playerTwoDeckIndex;
     }
 
     /**
-     * @return
+     * Get the seed used for shuffling the players' decks.
+     *
+     * @return the seed used for shuffling the decks.
      */
     public int getShuffleSeed() {
         return shuffleSeed;
     }
 
     /**
-     * @return
+     * Get the first player's hero.
+     *
+     * @return the hero of the first player.
      */
     public HeroCard getPlayerOneHero() {
         return playerOneHero;
     }
 
     /**
-     * @return
+     * Get the second player's hero.
+     *
+     * @return the hero of the second player.
      */
     public HeroCard getPlayerTwoHero() {
         return playerTwoHero;
     }
 
     /**
-     * @return
+     * Get the player who starts the game.
+     *
+     * @return the index of the starting player
      */
     public int getStartingPlayer() {
         return startingPlayer;

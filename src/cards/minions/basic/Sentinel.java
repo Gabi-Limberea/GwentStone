@@ -5,21 +5,23 @@ import fileio.CardInput;
 
 public final class Sentinel extends MinionCard {
     /**
-     * @param source
+     * @param source the card to be created
      */
     public Sentinel(final CardInput source) {
         super(source);
     }
 
     /**
-     * @param source
+     * @param source the card to be copied
      */
     public Sentinel(final MinionCard source) {
         super(source);
     }
 
     /**
-     * @return
+     * Sentinel is not a tank.
+     *
+     * @return false
      */
     @Override
     public boolean isTank() {

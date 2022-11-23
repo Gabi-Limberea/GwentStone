@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import fileio.Input;
-import loader.Loader;
+import session.Session;
 
 import java.io.File;
 import java.io.IOException;
@@ -51,7 +51,6 @@ public final class Main {
             File out = new File(filepath);
             boolean isCreated = out.createNewFile();
             if (isCreated) {
-                System.out.println("Created file: " + file.getName());
                 action(file.getName(), filepath);
             }
         }
@@ -75,12 +74,10 @@ public final class Main {
         ArrayNode output = objectMapper.createArrayNode();
 
         //TODO add here the entry point to your implementation
-        ArrayList<String> sessionOutput = new Loader(inputData).startSession();
+        ArrayList<String> sessionOutput = new Session(inputData).playSession();
         for (String line : sessionOutput) {
             output.add(objectMapper.readTree(line));
         }
-
-        System.out.println(output);
 
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
         objectWriter.writeValue(new File(filePath2), output);

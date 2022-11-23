@@ -10,8 +10,10 @@ public enum EnvironmentTypes {
     }
 
     /**
-     * @param name
-     * @return
+     * Get the environment type associated with the given name.
+     *
+     * @param name the name of the environment
+     * @return the environment type
      */
     public static EnvironmentTypes getEnvironmentType(final String name) {
         for (EnvironmentTypes environmentType : EnvironmentTypes.values()) {

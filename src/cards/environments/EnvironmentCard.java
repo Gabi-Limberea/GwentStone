@@ -3,32 +3,35 @@ package cards.environments;
 import cards.Card;
 import cards.minions.MinionCard;
 import fileio.CardInput;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
 public abstract class EnvironmentCard extends Card {
     /**
-     * @param source
+     * @param source the card to create
      */
-    public EnvironmentCard(final @NotNull CardInput source) {
+    public EnvironmentCard(final CardInput source) {
         super(source);
     }
 
     /**
-     * @param source
+     * @param source the card to copy
      */
-    public EnvironmentCard(final @NotNull EnvironmentCard source) {
+    public EnvironmentCard(final EnvironmentCard source) {
         super(source);
     }
 
     /**
-     * @param targetRow
+     * Use the environment card's ability
+     *
+     * @param targetRow the row to apply the effect to
      */
     public abstract void use(ArrayList<MinionCard> targetRow);
 
     /**
-     * @return
+     * Generate the string output for the card.
+     *
+     * @return the string version of the card
      */
     @Override
     protected String genOutput() {
@@ -38,7 +41,7 @@ public abstract class EnvironmentCard extends Card {
     }
 
     /**
-     * @return
+     * @return the string version of the card
      */
     @Override
     public String toString() {

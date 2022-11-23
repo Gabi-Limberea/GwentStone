@@ -5,21 +5,23 @@ import fileio.CardInput;
 
 public final class Goliath extends MinionCard {
     /**
-     * @param source
+     * @param source the card to be created
      */
     public Goliath(final CardInput source) {
         super(source);
     }
 
     /**
-     * @param source
+     * @param source the card to be copied
      */
     public Goliath(final MinionCard source) {
         super(source);
     }
 
     /**
-     * @return
+     * Goliath is a tank.
+     *
+     * @return true
      */
     @Override
     public boolean isTank() {
