@@ -14,9 +14,20 @@ public final class Firestorm extends EnvironmentCard {
     }
 
     /**
+     * @param source
+     */
+    public Firestorm(final EnvironmentCard source) {
+        super(source);
+    }
+
+    /**
      * @param targetRow
      */
-    public void use(ArrayList<MinionCard> targetRow) {
+    public void use(final ArrayList<MinionCard> targetRow) {
+        for (MinionCard minion : targetRow) {
+            minion.setHealth(minion.getHealth() - 1);
+        }
 
+        targetRow.removeIf(minion -> minion.getHealth() <= 0);
     }
 }

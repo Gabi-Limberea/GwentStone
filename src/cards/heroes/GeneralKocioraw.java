@@ -18,6 +18,9 @@ public final class GeneralKocioraw extends HeroCard {
      */
     @Override
     public void useAbility(final ArrayList<MinionCard> targetRow) {
-
+        for (MinionCard minionCard : targetRow) {
+            int minionAttackDamage = minionCard.getAttackDamage() + 1;
+            minionCard.setAttackDamage(minionAttackDamage);
+        }
     }
 }

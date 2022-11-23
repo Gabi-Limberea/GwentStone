@@ -12,6 +12,13 @@ public final class Sentinel extends MinionCard {
     }
 
     /**
+     * @param source
+     */
+    public Sentinel(final MinionCard source) {
+        super(source);
+    }
+
+    /**
      * @return
      */
     @Override

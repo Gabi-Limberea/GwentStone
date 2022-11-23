@@ -1,17 +1,17 @@
 package cards.minions;
 
 import cards.Card;
+import cards.CardAttackStatus;
 import cards.heroes.HeroCard;
 import fileio.CardInput;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Objects;
-
 public abstract class MinionCard extends Card {
-    private final MinionRow    row;
-    private       int          attackDamage;
-    private       MinionStates state;
-    private       int          health;
+    private final MinionRow          row;
+    private int          attackDamage;
+    private MinionStates state;
+    private int              health;
+    private CardAttackStatus attackStatus;
 
     /**
      * @param source
@@ -22,7 +22,7 @@ public abstract class MinionCard extends Card {
         this.state = MinionStates.ACTIVE;
         this.health = source.getHealth();
 
-        switch (Objects.requireNonNull(MinionTypes.getMinionType(source.getName()))) {
+        switch (MinionTypes.getMinionType(source.getName())) {
             case BERSERKER, SENTINEL, CURSED_ONE, DISCIPLE -> {
                 MinionRow dummyRow = MinionRow.BACK;
                 this.row = dummyRow;
@@ -33,19 +33,33 @@ public abstract class MinionCard extends Card {
             }
             default -> throw new IllegalStateException("Unexpected value: " + source.getName());
         }
+
+        this.attackStatus = CardAttackStatus.HAS_NOT_ATTACKED;
+    }
+
+    /**
+     * @param source
+     */
+    public MinionCard(final MinionCard source) {
+        super(source);
+        this.attackDamage = source.getAttackDamage();
+        this.state = source.getState();
+        this.health = source.getHealth();
+        this.row = source.getRow();
+        this.attackStatus = source.getAttackStatus();
     }
 
     /**
      * @param target
      */
-    public void basicAttack(@NotNull MinionCard target) {
+    public void basicAttack(final @NotNull MinionCard target) {
         target.health -= this.attackDamage;
     }
 
     /**
      * @param target
      */
-    public void heroAttack(@NotNull HeroCard target) {
+    public void heroAttack(final @NotNull HeroCard target) {
         target.takeDamage(this.attackDamage);
     }
 
@@ -121,5 +135,19 @@ public abstract class MinionCard extends Card {
     @Override
     public String toString() {
         return this.genOutput();
+    }
+
+    /**
+     * @return
+     */
+    public CardAttackStatus getAttackStatus() {
+        return attackStatus;
+    }
+
+    /**
+     * @param attackStatus
+     */
+    public void setAttackStatus(final CardAttackStatus attackStatus) {
+        this.attackStatus = attackStatus;
     }
 }

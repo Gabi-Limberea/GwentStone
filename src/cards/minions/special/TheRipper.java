@@ -13,6 +13,13 @@ public final class TheRipper extends MinionCard implements SpecialMinionCard {
     }
 
     /**
+     * @param source
+     */
+    public TheRipper(final MinionCard source) {
+        super(source);
+    }
+
+    /**
      * @return
      */
     @Override
@@ -24,7 +31,12 @@ public final class TheRipper extends MinionCard implements SpecialMinionCard {
      * @param target
      */
     @Override
-    public void specialAttack(MinionCard target) {
+    public void specialAttack(final MinionCard target) {
+        int newAttackDamage = target.getAttackDamage() - 2;
+        if (newAttackDamage < 0) {
+            newAttackDamage = 0;
+        }
 
+        target.setAttackDamage(newAttackDamage);
     }
 }

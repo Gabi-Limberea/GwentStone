@@ -13,6 +13,13 @@ public final class Disciple extends MinionCard implements SpecialMinionCard {
     }
 
     /**
+     * @param source
+     */
+    public Disciple(final MinionCard source) {
+        super(source);
+    }
+
+    /**
      * @return
      */
     @Override
@@ -24,7 +31,8 @@ public final class Disciple extends MinionCard implements SpecialMinionCard {
      * @param target
      */
     @Override
-    public void specialAttack(MinionCard target) {
-
+    public void specialAttack(final MinionCard target) {
+        int newHealth = target.getHealth() + 2;
+        target.setHealth(newHealth);
     }
 }

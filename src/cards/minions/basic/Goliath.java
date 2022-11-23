@@ -12,6 +12,13 @@ public final class Goliath extends MinionCard {
     }
 
     /**
+     * @param source
+     */
+    public Goliath(final MinionCard source) {
+        super(source);
+    }
+
+    /**
      * @return
      */
     @Override

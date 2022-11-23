@@ -13,6 +13,13 @@ public final class TheCursedOne extends MinionCard implements SpecialMinionCard 
     }
 
     /**
+     * @param source
+     */
+    public TheCursedOne(final MinionCard source) {
+        super(source);
+    }
+
+    /**
      * @return
      */
     @Override
@@ -24,7 +31,10 @@ public final class TheCursedOne extends MinionCard implements SpecialMinionCard 
      * @param target
      */
     @Override
-    public void specialAttack(MinionCard target) {
+    public void specialAttack(final MinionCard target) {
+        int temp = target.getAttackDamage();
 
+        target.setAttackDamage(target.getHealth());
+        target.setHealth(temp);
     }
 }

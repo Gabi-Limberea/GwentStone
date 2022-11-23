@@ -13,6 +13,13 @@ public final class Miraj extends MinionCard implements SpecialMinionCard {
     }
 
     /**
+     * @param source
+     */
+    public Miraj(final MinionCard source) {
+        super(source);
+    }
+
+    /**
      * @return
      */
     @Override
@@ -24,7 +31,10 @@ public final class Miraj extends MinionCard implements SpecialMinionCard {
      * @param target
      */
     @Override
-    public void specialAttack(MinionCard target) {
+    public void specialAttack(final MinionCard target) {
+        int temp = this.getHealth();
 
+        this.setHealth(target.getHealth());
+        target.setHealth(temp);
     }
 }

@@ -16,9 +16,16 @@ public abstract class EnvironmentCard extends Card {
     }
 
     /**
+     * @param source
+     */
+    public EnvironmentCard(final @NotNull EnvironmentCard source) {
+        super(source);
+    }
+
+    /**
      * @param targetRow
      */
-    abstract void use(ArrayList<MinionCard> targetRow);
+    public abstract void use(ArrayList<MinionCard> targetRow);
 
     /**
      * @return

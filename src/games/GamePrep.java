@@ -29,7 +29,7 @@ public final class GamePrep {
 
         cards.heroes.HeroCard heroTwo = null;
 
-        switch (HeroTypes.getHeroType(dummyHeroTwo.getName())) {
+        switch (HeroTypes.getHeroType(dummyHeroOne.getName())) {
             case ROYCE -> {
                 cards.heroes.HeroCard hero = new cards.heroes.LordRoyce(dummyHeroOne);
                 this.playerOneHero = hero;

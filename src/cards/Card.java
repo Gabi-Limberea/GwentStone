@@ -5,11 +5,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public abstract class Card {
+public abstract class Card implements Cloneable {
     private final int               mana;
     private final String            description;
     private final String            name;
-    private final ArrayList<String> colors;
+    private       ArrayList<String> colors;
 
     /**
      * @param source
@@ -19,6 +19,18 @@ public abstract class Card {
         this.description = source.getDescription();
         this.name = source.getName();
         this.colors = source.getColors();
+    }
+
+    /**
+     * @param source
+     */
+    public Card(final @NotNull Card source) {
+        this.mana = source.getMana();
+        this.description = source.getDescription();
+        this.name = source.getName();
+        this.colors = new ArrayList<>();
+
+        this.colors.addAll(source.getColors());
     }
 
     /**
@@ -40,6 +52,22 @@ public abstract class Card {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * @return
+     */
+    public void setColors(ArrayList<String> colors) {
+        this.colors = new ArrayList<>();
+
+        this.colors.addAll(colors);
+    }
+
+    /**
+     * @return
+     */
+    public ArrayList<String> getColors() {
+        return colors;
     }
 
     /**

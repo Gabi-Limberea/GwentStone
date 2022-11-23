@@ -22,8 +22,10 @@ public final class Loader {
         DecksInput dummyOne = sessionInput.getPlayerOneDecks();
         DecksInput dummyTwo = sessionInput.getPlayerTwoDecks();
 
-        this.playerOne = new Player(dummyOne, BoardRows.PLAYER_ONE_FRONT, BoardRows.PLAYER_ONE_BACK);
-        this.playerTwo = new Player(dummyTwo, BoardRows.PLAYER_TWO_FRONT, BoardRows.PLAYER_TWO_BACK);
+        this.playerOne = new Player(
+                dummyOne, BoardRows.PLAYER_ONE_FRONT, BoardRows.PLAYER_ONE_BACK);
+        this.playerTwo = new Player(
+                dummyTwo, BoardRows.PLAYER_TWO_FRONT, BoardRows.PLAYER_TWO_BACK);
 
         this.games = new ArrayList<>(sessionInput.getGames().size());
 
@@ -40,17 +42,14 @@ public final class Loader {
 
         for (Game game : this.games) {
             sessionOutput.addAll(game.startGame(this.playerOne, this.playerTwo));
+
+            this.playerOne.setMana(0);
+            this.playerOne.getHand().clear();
+
+            this.playerTwo.setMana(0);
+            this.playerTwo.getHand().clear();
         }
 
-        System.out.println(sessionOutput);
         return sessionOutput;
-    }
-
-    public Player getPlayerTwo() {
-        return playerTwo;
-    }
-
-    public Player getPlayerOne() {
-        return playerOne;
     }
 }

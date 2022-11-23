@@ -1,6 +1,7 @@
 package cards.heroes;
 
 import cards.Card;
+import cards.CardAttackStatus;
 import cards.minions.MinionCard;
 import fileio.CardInput;
 import org.jetbrains.annotations.NotNull;
@@ -8,8 +9,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 public abstract class HeroCard extends Card {
-    private static final int HEALTH = 30;
-    private              int health;
+    private static final int        HEALTH = 30;
+    private int              health;
+    private CardAttackStatus attackStatus;
 
     /**
      * @param source
@@ -17,12 +19,13 @@ public abstract class HeroCard extends Card {
     public HeroCard(final @NotNull CardInput source) {
         super(source);
         this.health = HEALTH;
+        this.attackStatus = CardAttackStatus.HAS_NOT_ATTACKED;
     }
 
     /**
      * @param targetRow
      */
-    abstract void useAbility(ArrayList<MinionCard> targetRow);
+    public abstract void useAbility(final ArrayList<MinionCard> targetRow);
 
     /**
      * @param damage
@@ -36,6 +39,20 @@ public abstract class HeroCard extends Card {
      */
     public int getHealth() {
         return this.health;
+    }
+
+    /**
+     * @return
+     */
+    public CardAttackStatus getAttackStatus() {
+        return this.attackStatus;
+    }
+
+    /**
+     * @param attackStatus
+     */
+    public void setAttackStatus(final CardAttackStatus attackStatus) {
+        this.attackStatus = attackStatus;
     }
 
     /**

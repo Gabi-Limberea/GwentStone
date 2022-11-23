@@ -12,6 +12,13 @@ public final class Warden extends MinionCard {
     }
 
     /**
+     * @param source
+     */
+    public Warden(final MinionCard source) {
+        super(source);
+    }
+
+    /**
      * @return
      */
     @Override

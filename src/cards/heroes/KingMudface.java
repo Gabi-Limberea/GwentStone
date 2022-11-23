@@ -18,6 +18,10 @@ public final class KingMudface extends HeroCard {
      */
     @Override
     public void useAbility(final ArrayList<MinionCard> targetRow) {
+        for (MinionCard minion : targetRow) {
+            minion.setHealth(minion.getHealth() + 1);
+        }
 
+        targetRow.removeIf(minion -> minion.getHealth() <= 0);
     }
 }

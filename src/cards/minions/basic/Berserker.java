@@ -12,6 +12,13 @@ public final class Berserker extends MinionCard {
     }
 
     /**
+     * @param source
+     */
+    public Berserker(final MinionCard source) {
+        super(source);
+    }
+
+    /**
      * @return
      */
     public boolean isTank() {
